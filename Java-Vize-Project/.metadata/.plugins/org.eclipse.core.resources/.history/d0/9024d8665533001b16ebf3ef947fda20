@@ -1,0 +1,120 @@
+package paket;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
+
+public class KontrolcuUygulama1 implements Initializable { // Kalýtým yaptýk ! 
+ 
+    @FXML
+    private TextField txtPlaka;
+
+    @FXML
+    private ComboBox<String> cmbMarka;
+
+    @FXML
+    private ComboBox<String> cmbTür;
+
+    @FXML
+    private ComboBox<String> cmbVitesTürü;
+
+    @FXML
+    private ComboBox<String> cmbYakýtTürü;
+
+    @FXML
+    private Spinner<Integer> spnModel;
+
+    @FXML
+    private ComboBox<String> cmbRenk;
+
+    @FXML
+    private ComboBox<String> cmbPlakaSeçimi;
+
+    @FXML
+    private TextField txtMarka;
+
+    @FXML
+    private TextField txtTür;
+
+    @FXML
+    private TextField txtVitesTürü;
+
+    @FXML
+    private TextField txtYakýtTürü;
+
+    @FXML
+    private TextField txtModel;
+
+    @FXML
+    private TextField txtRenk;
+
+    @FXML
+    void araçKayýt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void araçSil(ActionEvent event) {
+
+    }
+
+    @FXML
+    void plakaGöster(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) { // kendiliðinden çalýþan metod
+		
+   //Marka ve Türlerin Combobox'larýnýn içerisini doldurdum.
+		cmbMarka.getItems().add("Seat");
+		   cmbTür.getItems().add("Leon");
+		   cmbTür.getItems().add("Toledo");
+		   cmbTür.getItems().add("Ibiza");
+		  
+		cmbMarka.getItems().add("Ford");
+		   cmbTür.getItems().add("Mustang");
+		   cmbTür.getItems().add("Fiesta");
+		   cmbTür.getItems().add("Focus");
+		
+		cmbMarka.getItems().add("Volkswagen");
+		  cmbTür.getItems().add("Polo");
+		  cmbTür.getItems().add("Passat");
+		  cmbTür.getItems().add("Golf");
+		  
+	// Viteslerin Türlerini girmek için Combobox'larýn içerisini doldurdum;
+		cmbVitesTürü.getItems().add("Otomatik");
+		cmbVitesTürü.getItems().add("Yarý Otomatik");
+		cmbVitesTürü.getItems().add("Manuel");
+		
+	// Yakýt Türü doldurmasý için Comboboxlarýn içerisini doldurdum.
+		cmbYakýtTürü.getItems().add("Dizel");
+		cmbYakýtTürü.getItems().add("Benzin");
+		cmbYakýtTürü.getItems().add("Benzin-LPG");
+		
+	// Renk Combobox'ýnýn içerisini doldurdum..
+		cmbRenk.getItems().add("Siyah");
+		cmbRenk.getItems().add("Beyaz");
+		cmbRenk.getItems().add("Kýrmýzý");
+		cmbRenk.getItems().add("Mavi");
+		cmbRenk.getItems().add("Kahverengi");
+		cmbRenk.getItems().add("Füme");
+		cmbRenk.getItems().add("Altýn");
+		
+    // Spinner olarak model yýllarýnýn içerisini doldurmamýz gerekmektedir. min,max,ort ve artýþ miktarý 
+		spnModel.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1965, 2020, 2021, 1));
+		
+		
+	
+		
+		
+	}
+
+}

@@ -1,0 +1,68 @@
+package paket;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
+
+public class KontrolcuUygulama1 {
+
+    @FXML
+    private TextField txtPlaka;
+
+    @FXML
+    private ComboBox<String> cmbMarka;
+
+    @FXML
+    private ComboBox<String> cmbTür;
+
+    @FXML
+    private ComboBox<String> cmbVitesTürü;
+
+    @FXML
+    private ComboBox<String> cmbYakýtTürü;
+
+    @FXML
+    private Spinner<Integer> spnModel;
+
+    @FXML
+    private ComboBox<String> cmbRenk;
+
+    @FXML
+    private ComboBox<String> cmbPlakaSeçimi;
+
+    @FXML
+    private TextField txtMarka;
+
+    @FXML
+    private TextField txtTür;
+
+    @FXML
+    private TextField txtVitesTürü;
+
+    @FXML
+    private TextField txtYakýtTürü;
+
+    @FXML
+    private TextField txtModel;
+
+    @FXML
+    private TextField txtRenk;
+
+    @FXML
+    void araçKayýt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void araçSil(ActionEvent event) {
+
+    }
+
+    @FXML
+    void plakaGöster(ActionEvent event) {
+
+    }
+
+}

@@ -1,0 +1,83 @@
+package paket;
+
+public class Otomobil {
+
+	private String plaka, marka, tür, vitestürü, yakittürü, renk;
+	private int modelyili;
+	
+	// yapýlandýrýcý metod olusturdum! 
+	public Otomobil(String plaka, String marka, String tür, String vitestürü, String yakittürü, String renk,
+			int modelyili) {
+		super();
+		this.plaka = plaka;
+		this.marka = marka;
+		this.tür = tür;
+		this.vitestürü = vitestürü;
+		this.yakittürü = yakittürü;
+		this.renk = renk;
+		this.modelyili = modelyili;
+	}
+
+	public String getPlaka() {
+		return plaka;
+	}
+
+	public void setPlaka(String plaka) {
+		this.plaka = plaka;
+	}
+
+	public String getMarka() {
+		return marka;
+	}
+
+	public void setMarka(String marka) {
+		this.marka = marka;
+	}
+
+	public String getTür() {
+		return tür;
+	}
+
+	public void setTür(String tür) {
+		this.tür = tür;
+	}
+
+	public String getVitestürü() {
+		return vitestürü;
+	}
+
+	public void setVitestürü(String vitestürü) {
+		this.vitestürü = vitestürü;
+	}
+
+	public String getYakittürü() {
+		return yakittürü;
+	}
+
+	public void setYakittürü(String yakittürü) {
+		this.yakittürü = yakittürü;
+	}
+
+	public String getRenk() {
+		return renk;
+	}
+
+	public void setRenk(String renk) {
+		this.renk = renk;
+	}
+
+	public int getModelyili() {
+		return modelyili;
+	}
+
+	public void setModelyili(int modelyili) {
+		this.modelyili = modelyili;
+	}
+	
+	
+	
+	
+	
+	
+	
+}

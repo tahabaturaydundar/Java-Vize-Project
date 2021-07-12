@@ -1,0 +1,25 @@
+package paket;
+
+public class Otomobil {
+
+	private String plaka, marka, tür, vitestürü, yakittürü, renk;
+	private int modelyili;
+	
+	// yapýlandýrýcý metod olusturdum! 
+	public Otomobil(String plaka, String marka, String tür, String vitestürü, String yakittürü, String renk,
+			int modelyili) {
+		super();
+		this.plaka = plaka;
+		this.marka = marka;
+		this.tür = tür;
+		this.vitestürü = vitestürü;
+		this.yakittürü = yakittürü;
+		this.renk = renk;
+		this.modelyili = modelyili;
+	}
+	
+	
+	
+	
+	
+}

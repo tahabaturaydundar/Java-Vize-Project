@@ -1,0 +1,205 @@
+package paket;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
+
+public class KontrolcuUygulama1 implements Initializable { // Kalýtým yaptýk ! 
+ 
+    @FXML
+    private TextField txtPlaka; // 
+
+    @FXML
+    private ComboBox<String> cmbMarka;
+
+    @FXML
+    private ComboBox<String> cmbTür;
+
+    @FXML
+    private ComboBox<String> cmbVitesTürü;
+
+    @FXML
+    private ComboBox<String> cmbYakýtTürü;
+
+    @FXML
+    private Spinner<Integer> spnModel;
+
+    @FXML
+    private ComboBox<String> cmbRenk;
+
+    @FXML
+    private ComboBox<String> cmbPlakaSeçimi;
+
+    @FXML
+    private TextField txtMarka;
+
+    @FXML
+    private TextField txtTür;
+
+    @FXML
+    private TextField txtVitesTürü;
+
+    @FXML
+    private TextField txtYakýtTürü;
+
+    @FXML
+    private TextField txtModel;
+
+    @FXML
+    private TextField txtRenk;
+    
+    private ArrayList<Otomobil> otomobiller = new ArrayList<>();  // otomobiller dizisi! 
+
+    @FXML
+    void araçKayýt(ActionEvent event) {
+
+    	String plaka = txtPlaka.getText(); // Plaka bilgisi
+    	for (int i = 0; i < otomobiller.size(); i++) { // Ayný plakalý araç olamaz ! 
+			if (plaka.equals(otomobiller.get(i).getPlaka())) {
+				Alert hata = new Alert(AlertType.ERROR);
+				hata.setTitle("Hata");
+				hata.setHeaderText("Bu plakada zaten bir araç kayýtlý...");
+				hata.show();
+				return; 
+			}
+		}
+    	String marka = cmbMarka.getValue();
+    	String tür = cmbTür.getValue();
+    	String vitestürü = cmbVitesTürü.getValue();
+    	String yakittürü = cmbYakýtTürü.getValue();
+    	int modelyili = spnModel.getValue();
+    	String renk = cmbRenk.getValue();
+    	
+    	
+    	Otomobil otomobil = new Otomobil(plaka, marka, tür, vitestürü, yakittürü, renk, modelyili);
+    	otomobiller.add(otomobil);
+    	
+    	try {
+			FileOutputStream fos = new FileOutputStream("araçbilgiler.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(otomobiller); // otomobiller arraylisttinin içerisine yazmasý gerek!!!
+			fos.close();
+			oos.close();
+			Alert bilgilendirme = new Alert(AlertType.INFORMATION); 
+			bilgilendirme.setTitle("Bilgi");
+			bilgilendirme.setHeaderText(otomobil.getPlaka()+" plakalý araç kayýt edildi.");
+			bilgilendirme.show();
+			cmbPlakaSeçimi.getItems().add(otomobil.getPlaka()); // Kayýt edildiði anda combobx'ýn içerisine de düþmesini saðlar!
+		} catch (Exception e) { // öndeki filenotfound ekini kaldýrdým ! 
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void araçSil(ActionEvent event) {
+       
+    	// remove(); komutu kullanarak silme iþlemi yapýlacak! 
+    	int kayýtSil = cmbPlakaSeçimi.getSelectionModel().getSelectedIndex();
+    	if(kayýtSil>=0) {
+    		cmbPlakaSeçimi.getItems().remove(kayýtSil);
+    		otomobiller.remove(kayýtSil);
+    		
+    		
+    		try {
+				FileOutputStream fos = new FileOutputStream("araçbilgiler.dat");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(otomobiller);
+				oos.close();
+				fos.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    	}
+    
+    }
+
+    @FXML
+    void plakaGöster(ActionEvent event) {
+
+    	int seçilen = cmbPlakaSeçimi.getSelectionModel().getSelectedIndex();
+    	txtMarka.setText(otomobiller.get(seçilen).getMarka());
+    	txtRenk.setText(otomobiller.get(seçilen).getRenk());
+    	txtTür.setText(otomobiller.get(seçilen).getTür());
+    	txtVitesTürü.setText(otomobiller.get(seçilen).getVitestürü());
+    	txtYakýtTürü.setText(otomobiller.get(seçilen).getYakittürü());
+    	txtModel.setText(otomobiller.get(seçilen).getModelyili() + " ");
+    	
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) { // kendiliðinden çalýþan metod
+		
+ // mesela örnek 
+   //Marka ve Türlerin Combobox'larýnýn içerisini doldurdum.
+		cmbMarka.getItems().add("Seat");
+		   cmbTür.getItems().add("Leon");
+		   cmbTür.getItems().add("Toledo");
+		   cmbTür.getItems().add("Ibiza");
+		   
+		cmbMarka.getItems().add("Ford");
+		   cmbTür.getItems().add("Mustang");
+		   cmbTür.getItems().add("Fiesta");
+		   cmbTür.getItems().add("Focus");
+		
+		cmbMarka.getItems().add("Volkswagen");
+		  cmbTür.getItems().add("Polo");
+		  cmbTür.getItems().add("Passat");
+		  cmbTür.getItems().add("Golf");
+		  
+	// Viteslerin Türlerini girmek için Combobox'larýn içerisini doldurdum;
+		cmbVitesTürü.getItems().add("Otomatik");
+		cmbVitesTürü.getItems().add("Yarý Otomatik");
+		cmbVitesTürü.getItems().add("Manuel");
+		
+	// Yakýt Türü doldurmasý için Comboboxlarýn içerisini doldurdum.
+		cmbYakýtTürü.getItems().add("Dizel");
+		cmbYakýtTürü.getItems().add("Benzin");
+		cmbYakýtTürü.getItems().add("Benzin-LPG");
+		
+	// Renk Combobox'ýnýn içerisini doldurdum..
+		cmbRenk.getItems().add("Siyah");
+		cmbRenk.getItems().add("Beyaz");
+		cmbRenk.getItems().add("Kýrmýzý");
+		cmbRenk.getItems().add("Mavi");
+		cmbRenk.getItems().add("Kahverengi");
+		cmbRenk.getItems().add("Füme");
+		cmbRenk.getItems().add("Altýn");
+		
+    // Spinner olarak model yýllarýnýn içerisini doldurmamýz gerekmektedir.ort,min,max ve artýþ miktarý 
+		spnModel.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1965, 2021, 2000, 1));
+		
+	try {
+		FileInputStream fis = new FileInputStream("araçbilgiler.dat");
+		ObjectInputStream ois = new ObjectInputStream(fis); // nesneyi okumak için inputStreamleri kullandýk!
+		otomobiller = (ArrayList<Otomobil>) ois.readObject();
+		ois.close();
+		
+		for (int i = 0; i < otomobiller.size(); i++) {
+			cmbPlakaSeçimi.getItems().add(otomobiller.get(i).getPlaka());
+		}
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+				
+		
+	}
+
+}

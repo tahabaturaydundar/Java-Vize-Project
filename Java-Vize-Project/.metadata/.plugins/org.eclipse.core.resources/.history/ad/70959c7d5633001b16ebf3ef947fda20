@@ -1,0 +1,10 @@
+package paket;
+
+public class Otomobil {
+
+	private String plaka,marka, tür, vitestürü, yakittürü, renk;
+	private int modelyili;
+	
+	
+	
+}

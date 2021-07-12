@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paket.KontrolcuUygulama1">
+   <children>
+      <TextField fx:id="txtPlaka" layoutX="62.0" layoutY="82.0" prefHeight="25.0" prefWidth="166.0" promptText="Plakayı Giriniz " />
+      <Label layoutX="62.0" layoutY="45.0" prefHeight="19.0" prefWidth="166.0" text="Otomobil Bilgisi Girişi">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="45.0" prefHeight="20.0" prefWidth="204.0" text="Otomobil Bilgisi Görüntüleme">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbMarka" layoutX="62.0" layoutY="130.0" prefHeight="25.0" prefWidth="166.0" promptText="Marka" />
+      <ComboBox fx:id="cmbTür" layoutX="62.0" layoutY="178.0" prefHeight="25.0" prefWidth="166.0" promptText="Tür" />
+      <ComboBox fx:id="cmbVitesTürü" layoutX="62.0" layoutY="225.0" prefHeight="25.0" prefWidth="166.0" promptText="Vites Türü" />
+      <ComboBox fx:id="cmbYakıtTürü" layoutX="62.0" layoutY="271.0" prefHeight="25.0" prefWidth="166.0" promptText="Yakıt Türü " />
+      <Spinner fx:id="spnModel" layoutX="62.0" layoutY="323.0" prefHeight="25.0" prefWidth="166.0" />
+      <ComboBox fx:id="cmbRenk" layoutX="62.0" layoutY="369.0" prefHeight="25.0" prefWidth="166.0" promptText="Renk" />
+      <Button layoutX="102.0" layoutY="419.0" mnemonicParsing="false" onAction="#araçKayıt" prefHeight="25.0" prefWidth="126.0" text="Araç Kayıt" />
+      <ComboBox fx:id="cmbPlakaSeçimi" layoutX="347.0" layoutY="82.0" onAction="#plakaGöster" prefHeight="25.0" prefWidth="166.0" promptText="Plaka Seçiniz" />
+      <TextField fx:id="txtMarka" editable="false" layoutX="347.0" layoutY="130.0" prefHeight="25.0" prefWidth="166.0" promptText="Marka" />
+      <TextField fx:id="txtTür" editable="false" layoutX="347.0" layoutY="178.0" prefHeight="25.0" prefWidth="166.0" promptText="Tür" />
+      <TextField fx:id="txtVitesTürü" editable="false" layoutX="347.0" layoutY="225.0" prefHeight="25.0" prefWidth="166.0" promptText="Vites Türü" />
+      <TextField fx:id="txtYakıtTürü" editable="false" layoutX="347.0" layoutY="271.0" prefHeight="25.0" prefWidth="166.0" promptText="Yakıt Türü" />
+      <TextField fx:id="txtModel" editable="false" layoutX="347.0" layoutY="323.0" prefHeight="25.0" prefWidth="166.0" promptText="Modeli" />
+      <TextField fx:id="txtRenk" editable="false" layoutX="347.0" layoutY="369.0" prefHeight="25.0" prefWidth="166.0" promptText="Renk" />
+      <Label layoutX="246.0" layoutY="327.0" text="Model Yılı" />
+      <Button layoutX="250.0" layoutY="444.0" mnemonicParsing="false" onAction="#araçSil" prefHeight="25.0" prefWidth="98.0" text="Kaydı Sil" />
+   </children>
+</AnchorPane>
